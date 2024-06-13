@@ -1,0 +1,54 @@
+import random
+number_list = []
+for i in range(1, 101):
+    number_list.append(i)
+selected_number = random.choice(number_list)
+
+
+def easy():
+    print(f"selected number = {selected_number}")
+    print("I'm thinking of a number between 1 and 100.")
+    print("You have 10 attempts to guess the number.")
+    for i in range(1, 11):
+        guess = int(input(f"This is your guess no. {i}, Make a guess:"))
+        if guess == selected_number:
+            print(f"You got it! The answer was {selected_number}.")
+            break
+        else:
+            print(f"Your guess is wrong. You have only {10 - i} chances remaining.")
+            if guess > selected_number:
+                print("Too high.")
+            else:
+                print("Too low.")
+    print("You've run out of guesses, you lose.")
+
+
+def hard():
+    print(f"selected number = {selected_number}")
+    print("I'm thinking of a number between 1 and 100.")
+    print("You have 5 attempts to guess the number.")
+    for i in range(1, 6):
+        guess = int(input(f"This is your guess no. {i}, Make a guess:"))
+        if guess == selected_number:
+            print(f"You got it! The answer was {selected_number}.")
+            break
+        else:
+            print(f"Your guess is wrong. You have only {6 - i} chances remaining.")
+            if guess > selected_number:
+                print("Too high.")
+            else:
+                print("Too low.")
+    print("You've run out of guesses, you lose.")
+
+
+def play():
+    difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ")
+    if difficulty == 'easy':
+        easy()
+    elif difficulty == 'hard':
+        hard()
+
+
+while input("Do you want to play 'GUESS THE NUMBER'? y or n") == "y":
+    print("Welcome to the game <<GUESS THE NUMBER>>>!")
+    play()
